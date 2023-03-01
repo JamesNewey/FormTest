@@ -1,0 +1,11 @@
+﻿@page
+@model ResidentModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    Name:
+    <input asp-for="Resident!.Name" />
+    <input type="submit" />
+</form>
