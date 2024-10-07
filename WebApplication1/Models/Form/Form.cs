@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Models.Form
+﻿using System.Collections.Generic;
+
+namespace FormsTest.Models.Form
 {
     public class Form
     {

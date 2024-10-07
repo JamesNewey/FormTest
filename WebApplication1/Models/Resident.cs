@@ -1,12 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Models
+namespace FormsTest.Models
 {
     public class Resident
     {
+        [ReadOnly(true)]
         public int Id { get; set; }
 
         [Required]
+        [DisplayName("Name of person")]
         public string Name { get; set; }
     }
 }

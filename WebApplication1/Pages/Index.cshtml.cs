@@ -1,35 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebApplication1.Models;
-using WebApplication1.Models.Form;
+using FormsTest.Models;
+using FormsTest.Models.Form;
+using FormsTest.Services;
 
-namespace WebApplication1.Pages
+namespace FormsTest.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        
+        private readonly IFormService _formService;
 
         [BindProperty]
         public Form Form { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, IFormService formService)
         {
+            _formService = formService;
             _logger = logger;
         }
 
         public void OnGet()
         {
-            Form = new Form()
+            var resident = new Resident()
             {
-                Fields =
-                {
-                    new FormField { Name = "FirstName", Value = "James" },
-                    new FormField { Name = "LastName", Value = "Newey" }
-                }
+                Id = 1,
+                Name = "James"
             };
+
+            Form = _formService.GetForm(resident);
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Resident resident)
         {
             if (!ModelState.IsValid)
             {

@@ -4,16 +4,4 @@
     ViewData["Title"] = "Home page";
 }
 
-<form method="post">
-
-    @foreach(var field in Model.Form.Fields)
-    {
-        <fieldset>
-            <label for="@field.Name">@field.Name</label>
-            <input name="@field.Name" size="30" type="text" value="@field.Value" />
-            <span asp-validation-for="@field.Name" class="text-danger"></span>
-        </fieldset>
-    }
-    <input type="submit" />
-
-</form>
+@await Html.PartialAsync("Forms/_Form", Model.Form)

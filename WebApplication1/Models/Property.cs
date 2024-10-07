@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace FormsTest.Models
 {
     public class Property
     {

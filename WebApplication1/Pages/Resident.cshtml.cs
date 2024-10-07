@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebApplication1.Models;
+using FormsTest.Models;
 
-namespace WebApplication1.Pages
+namespace FormsTest.Pages
 {
     public class ResidentModel : PageModel
     {
