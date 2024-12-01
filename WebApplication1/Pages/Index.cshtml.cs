@@ -27,10 +27,22 @@ namespace FormsTest.Pages
             var resident = new Resident()
             {
                 Id = 1,
+                Title = "Mr",
                 Name = "James"
             };
 
-            Form = _formService.GetForm(resident);
+            //Form = _formService.GetForm(resident);
+
+            var builder = new FormBuilder<Resident>(resident);
+
+            Form = builder
+                .AddFromDataAnnotations()
+                .AddProperty(f => f.Title)
+                .MapProperties(m =>
+                {
+                    m.DoMapping(f => f.Title).SelectWithOptions(new[] { "Mr", "Mrs" });
+                })
+                .Build();
         }
 
         public async Task<IActionResult> OnPostAsync(Resident resident)
