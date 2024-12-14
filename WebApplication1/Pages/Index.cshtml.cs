@@ -40,7 +40,7 @@ namespace FormsTest.Pages
                 .AddProperty(f => f.Title)
                 .MapProperties(m =>
                 {
-                    m.DoMapping(f => f.Title).SelectWithOptions(new[] { "Mr", "Mrs" });
+                    m.AddField(f => f.Title).SelectWithOptions(new[] { "Mr", "Mrs" });
                 })
                 .Build();
         }

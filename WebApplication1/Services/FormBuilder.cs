@@ -64,9 +64,9 @@ namespace FormsTest.Services
 
         public delegate void FormFieldDelegate(IFormFieldSelector<TModel> mapping);
 
-        public FormFieldBuilder<TModel> DoMapping<TProp>(Func<TModel, TProp> property)
+        public FormFieldBuilder<TModel, TProp> DoMapping<TProp>(Func<TModel, TProp> property)
         {
-            return new FormFieldBuilder<TModel>(_model);
+            return new FormFieldBuilder<TModel, TProp>(_model);
         }
 
     }

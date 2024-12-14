@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace FormsTest.Services
 {
-    public class FormFieldBuilder<TModel>
+    public class FormFieldBuilder<TModel, TProp>
     {
         protected Form _form;
 
@@ -19,15 +19,17 @@ namespace FormsTest.Services
 
         public FormFieldBuilder(TModel model)
         {
+
             _form = new Form();
+            _model = model;
         }
 
-        public FormFieldBuilder<TModel> AddProperty<TProp>(Expression<Func<TModel, TProp>> property)
-        {
-            return this;
-        }
+        //public FormFieldBuilder<TModel, TProp> AddProperty<TProp>(Expression<Func<TModel, TProp>> property)
+        //{
+        //    return this;
+        //}
 
-        public FormFieldBuilder<TModel> SelectWithOptions(IEnumerable<string> options)
+        public FormFieldBuilder<TModel, TProp> SelectWithOptions(IEnumerable<string> options)
         {
             return this;
         }
